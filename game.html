@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <title>Guessing Game</title>
+</head>
+<body>
+    <div><h1>Guessing Game</h1></div>
+    <div class="para1">
+        <p>Only Rule : Faster you guess, Higher the score!!</p><br>
+        <hr>
+        <article>Guess the correct number in the range of 1-30</article>        
+    </div>
+    <span id="hide">?</span>
+    <div class="box" id="right">
+        <p>Till now highest score is: <span id="hsc">NA</p><br>
+        <p>Score countdown: <span id="csc">NA</span></p>
+    </div>
+    <div class="box" id="left">
+        <div id="ipbox">
+        
+        <input id="num" type="number" name="num" min="1" max="30"><br></div>
+        <div class="buttons">
+            <button class="button" id="check" onclick="check()">Check</button>
+            <button class="button" id="reset" onclick="reset()">Reset</button>
+        </div>
+        <div id="status"></div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
