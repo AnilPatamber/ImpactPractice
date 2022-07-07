@@ -2,6 +2,8 @@ let countDown = 30;
 let globalRandom=0;
 let score=0;
 let highestScore=0;
+const wrong= new Audio("./sound/wrong.wav");
+const right= new Audio("./sound/right.wav");
 generateRandom();
 function check(){
     let num = document.querySelector('#num').value;
@@ -11,6 +13,7 @@ function check(){
     if(num==globalRandom){
         
         score = countDown;
+        right.play();
         if(score<highestScore)
         document.getElementById('status').innerHTML="You guess it right and the score is: "+score;
         else
@@ -26,13 +29,21 @@ function check(){
        document.getElementById('hide').innerHTML=globalRandom;
     }
     else if(num>globalRandom){
+        document.querySelector('body').style.backgroundColor="red";
         document.getElementById('status').innerHTML="Too High...";
+        wrong.play();
         countDown--;
+        setTimeout(() => { document.querySelector('body').style.backgroundColor="silver"; }, 100);
     }
         
     else {
-        document.getElementById('status').innerHTML="Too Low..."
-    countDown--;
+        document.querySelector('body').style.backgroundColor="red";        
+        document.getElementById('status').innerHTML="Too Low..."; 
+        wrong.play();       
+        countDown--; 
+        setTimeout(() => { document.querySelector('body').style.backgroundColor="silver"; }, 100)       
+        
+        
     }
     document.getElementById('csc').innerHTML=countDown;
     
